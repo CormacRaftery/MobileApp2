@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.AboutPage"
+             xmlns:vm="clr-namespace:App2.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <Grid x:Name="PageContentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Text="Connect 4" HorizontalOptions="Center" Grid.Row="0" Margin="0,3"/>
+
+        <StackLayout ClassId="GameStack" Grid.Row="1" HorizontalOptions="Center" Margin="0,4" Orientation="Horizontal">
+
+            <Frame BackgroundColor="Blue" HeightRequest="50">
+                <Image x:Name="ImagePlayerRed" Source="redpiece.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" VerticalOptions="Start"/>
+            </Frame>
+            <Grid x:Name="BoardGameGrid" HeightRequest="500" WidthRequest="500">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="connectboard.png" Aspect="AspectFit" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" Grid.ColumnSpan="7"/>
+            </Grid>
+            <Image x:Name="ImagePlayerYellow" Source="yellowpiece.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50" VerticalOptions="Start"/>
+        </StackLayout>
+        <StackLayout x:Name="ButtonStack" Grid.Row="2" HorizontalOptions="Center" Margin="0,3" Orientation="Vertical">
+            <Entry x:Name="ColumnEntry" Placeholder="Enter Column" Margin="4,0" />
+            <Label Text="Select any column to place a piece in that column. Red always goes first." HorizontalOptions="Center" Grid.Row="0" Margin="0,3"/>
+            <Label Text="To change the player colour, click the button below." HorizontalOptions="Center" Grid.Row="0" Margin="0,3"/>
+            <Button x:Name="ChangeColour" Margin="4,0" Text="Change Player Colour" Clicked="ChangeColour_Clicked"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

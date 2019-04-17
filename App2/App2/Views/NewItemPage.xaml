@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.NewItemPage"
+             Title="New Item">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="SaveGame_Clicked" />
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="PageContentGrid">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Label Text="Snakes &amp; Ladders" HorizontalOptions="Center" 
+               Grid.Row="0" Margin="0,3" />
+
+    <StackLayout ClassId="GamesStack" Grid.Row="1" HorizontalOptions="Center" 
+                     Margin="0,4" Orientation="Horizontal"  >
+        <Image x:Name="ImagePlayer1" Source="greenghost.png" Aspect="AspectFit"
+                   VerticalOptions="End" HeightRequest="50" WidthRequest="50"/>
+        <Image x:Name="ImagePlayer2" Source="yellowghost.png" Aspect="AspectFit"
+                   VerticalOptions="End" HeightRequest="50" WidthRequest="50"/>
+        <Grid x:Name="BoardGameGrid" HeightRequest="500" WidthRequest="500">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="theboard.png" Aspect="AspectFit"
+                   Grid.Row="0" Grid.Column="0"
+                   Grid.RowSpan="10" Grid.ColumnSpan="10" />
+        </Grid>
+    </StackLayout>
+
+        <StackLayout x:Name="ButtonStack" Grid.Row="2" HorizontalOptions="Center"
+                     Margin="0,3" Orientation="Horizontal"  >
+            <Button x:Name="TranslationButton" Margin="4,0" Text="Player 1's turn"
+                    Clicked="TranslationButton_Clicked" />
+        <Button x:Name="SaveGame" Margin="4,0" Text="Save Game"
+                    Clicked="SaveGame_Clicked" />
+    </StackLayout>
+</Grid>
+</ContentPage>
